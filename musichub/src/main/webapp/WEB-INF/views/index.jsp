@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 		
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
 	
 
 	<style type="text/css">
@@ -33,12 +33,13 @@
   display:block;
 	
 	}
-	.navbar
+	.navbar,.pmenu
 	{
 	background:black;
 	}
 	
-	.navbar li a{
+	.navbar li a,.pmenu
+	{
 	color:white !important;
 	}
 	.navbar li a:hover{
@@ -63,18 +64,28 @@
 
 <div class="container">
 
-<div class="navbar navbar-default row">
+<div class="navbar navbar-inverse row">
 <div class="col-sm-7">
 
 </div>
-<div class="col-sm-5"> <ul class="nav navbar-nav">
+<div class="col-sm-5"> 
+ <ul class="nav navbar-nav">
+
 <li><a href="">Home</a></li>
 <li><a href="#">About US</a></li>
-<li><a href="#">Contact Us</a></li>
+<li class="dropdown"><a data-toggle="dropdown" href="Product">Product <span class="caret"></span></a>
+<ul class="pmenu dropdown-menu">
+<li><a href="Product">Guitar</a></li>
+<li><a href="Product">Piano</a></li>
+<li><a href="Product">Flute</a></li>
+
+</ul>
+</li>
 <li><a href="Register">Register</a></li>
 <li><a href="Login">Login</a></li>
 
-</ul></div>
+</ul>
+</div>
 
 <!-- <div class ="col-sm-8"></div>
 <div class ="col-sm-2"><li><a href="#">Register</a></li></div>
@@ -96,13 +107,13 @@
         
         <div style="height:400px;"  class="carousel-inner">
             <div class="item active">
-                <img  src="images/M1.jpg"/>
+                <img  src="resources/images/M1.jpg"/>
             </div>
             <div class="item">
-                <img  src="images/M2.jpg"/>
+                <img  src="resources/images/M2.jpg"/>
             </div>
             <div class="item">
-                <img  src="images/M3.jpg"/>
+                <img  src="resources/images/M3.jpg"/>
             </div>
         </div>
        
@@ -134,13 +145,19 @@ basses, guitar amplifiers, iOS, keyboards, drums, live sound, DJ, microphones, r
 <P>&nbsp;</P>
 <div class="row">
 <div  class="colsize col-sm-4">
-<img  src="images/M1.jpg"/>
+<a href="Product">
+<img  src="resources/images/M1.jpg"/>
+</a>
 </div>
 <div class="colsize col-sm-4">
-<img  src="images/M2.jpg"/>
+<a href="Product">
+<img src="resources/images/M2.jpg"/>
+</a>
 </div>
 <div class="colsize col-sm-4">
-<img  src="images/M3.jpg"/>
+<a href="Product">
+<img  src="resources/images/M3.jpg"/>
+</a>
 </div>
 
 
@@ -159,7 +176,7 @@ basses, guitar amplifiers, iOS, keyboards, drums, live sound, DJ, microphones, r
 	 
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="resources/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>

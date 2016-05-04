@@ -4,16 +4,23 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 		
-	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
 	</head>
 	<style>
-	.navbar
+	.navbar,.pmenu
 	{
 	background:black;
 	}
 	
-	.navbar li a{
+	.navbar li a,.pmenu
+	{
 	color:white !important;
+	}
+	
+	.pmenu a:hover{
+	background:black;
+	font-weight: bold;
+	
 	}
 	.navbar li a:hover{
 	font-weight: bold;
@@ -53,14 +60,23 @@
 
 <div class="container">
 
-<div class="navbar navbar-default row">
+<div class="navbar navbar-inverse row">
 <div class="col-sm-7">
 
 </div>
-<div class="col-sm-5"> <ul class="nav navbar-nav">
+<div class="col-sm-5">
+ <ul class="nav navbar-nav">
+
 <li><a href="">Home</a></li>
 <li><a href="#">About US</a></li>
-<li><a href="#">Contact Us</a></li>
+<li class="dropdown"><a data-toggle="dropdown" href="Product">Product <span class="caret"></span></a>
+<ul class="pmenu dropdown-menu">
+<li><a href="Product">Guitar</a></li>
+<li><a href="Product">Piano</a></li>
+<li><a href="Product">Flute</a></li>
+
+</ul>
+</li>
 <li><a href="Register">Register</a></li>
 <li><a href="Login">Login</a></li>
 

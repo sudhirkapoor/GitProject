@@ -12,7 +12,7 @@ public class MainController {
 @RequestMapping("/")
 public ModelAndView Index()
 {
-	System.out.println("In Controller");
+	//System.out.println("In Controller");
 	ModelAndView mv=new ModelAndView("index");
 	mv.addObject("msg","Welcome");
 	return mv;
@@ -30,6 +30,13 @@ public ModelAndView Login_Method()
 public ModelAndView Register_Method()
 {
 	ModelAndView mv=new ModelAndView("Register");
+	mv.addObject("msg","Register");
+	return mv;
+}
+@RequestMapping("/Product")
+public ModelAndView Product_Method()
+{
+	ModelAndView mv=new ModelAndView("Product");
 	mv.addObject("msg","Register");
 	return mv;
 }
