@@ -155,12 +155,12 @@ basses, guitar amplifiers, iOS, keyboards, drums, live sound, DJ, microphones, r
 </a>
 </div>
 <div class="colsize col-sm-4">
-<a href="Product">
+<a href="Product/Flute">
 <img src="<c:url value="${img }/flute.jpg"/>"/>
 </a>
 </div>
 <div class="colsize col-sm-4">	
-<a href="Product">
+<a href="Product/Piano">
 <img  src="<c:url value="${img }/Piano.png"/>"/>
 </a>
 </div>

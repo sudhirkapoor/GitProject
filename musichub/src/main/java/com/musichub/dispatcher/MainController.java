@@ -47,11 +47,23 @@ public ModelAndView Register_Method()
 public ModelAndView Product_Method2(@PathVariable("pname") String Prodname)
 {
 	
+	List<Product> filteredlist=new ArrayList<Product>();
 	ProductService service=new ProductService();
 	List<Product> list=service.getProducts();
 	
+	Iterator<Product> i=list.iterator();
+	while(i.hasNext())
+	{
+		Product p=(Product)i.next();
+		if(p.getcatagory().equals(Prodname))
+		{
+			filteredlist.add(p);
+		}
+		
+	}
+		
 	
-	String json = new Gson().toJson(list );
+	String json = new Gson().toJson(filteredlist );
 	
 	
 	ModelAndView mv=new ModelAndView("Product");
