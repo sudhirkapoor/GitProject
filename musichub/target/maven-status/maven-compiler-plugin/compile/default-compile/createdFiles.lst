@@ -1,0 +1,5 @@
+com\musichub\dispatcher\MainController.class
+com\musichub\dao\ProductDAOImplement.class
+com\musichub\model\Product.class
+com\musichub\dao\ProductDAO.class
+com\musichub\service\ProductService.class
