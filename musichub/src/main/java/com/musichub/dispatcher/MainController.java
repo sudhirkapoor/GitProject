@@ -4,11 +4,12 @@ import javax.servlet.http.*;
 
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.*;
 import com.google.gson.Gson;
 import com.musichub.model.Product;
 import com.musichub.service.*;
@@ -46,19 +47,25 @@ public ModelAndView Register_Method()
 public ModelAndView Product_Method2(@PathVariable("pname") String Prodname)
 {
 	
+	ProductService service=new ProductService();
+	List<Product> list=service.getProducts();
+	
+	
+	String json = new Gson().toJson(list );
+	
 	
 	ModelAndView mv=new ModelAndView("Product");
-	mv.addObject("Productdata",Prodname);
-	//System.out.println(Prodname);
+	mv.addObject("data1",json);
+	
 	return mv;
 }
-
-
+@Autowired
+ProductService service;
 
 @RequestMapping("/Product")
 public ModelAndView Product_Method()
 {
-	ProductService service=new ProductService();
+	 service=new ProductService();
 	List<Product> list=service.getProducts();
 	String json = new Gson().toJson(list );
 	 

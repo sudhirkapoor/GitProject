@@ -1,10 +1,12 @@
 package com.musichub.dao;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.musichub.model.Product;
-
+@Repository("dao")
 public class ProductDAO implements ProductDAOImplement {
 
 	public List<Product> getProductDetails() {

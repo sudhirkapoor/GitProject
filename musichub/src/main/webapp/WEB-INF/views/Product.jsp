@@ -56,23 +56,9 @@
 					    $scope.products = data;
 					3
 					}); */
-					
+					//$scope.searchText=${Productdata};
 					$scope.products=${data1};
-
-			/* var d=	${Productdata};
-			if (d.toString()=="Guitar")
-				{
-				$scope.searchText ="Guitar";
-				}			
-			else if(d=="Piano")
-				{				
-				$scope.searchText ="Piano";
-				}
-			else if(d=="Flute")
-			{				
-			$scope.searchText ="Flute";
-			} */
-				
+					
 				
 			});
 </script>
