@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 public class Product implements Serializable {
 	 @Id @GeneratedValue(strategy= GenerationType.AUTO)
 	   @Column(name = "id")
-	int id;
+private	int id;
 	 
 	 @Column(name = "name")
 	String name;
@@ -31,7 +31,7 @@ public class Product implements Serializable {
 	 
 	public int getid()
 	{
-		return id;
+		return this.id;
 	}
 	public void setid(int id)
 	{
@@ -68,7 +68,7 @@ public class Product implements Serializable {
 	}
 	public int getprice()
 	{
-		return id;
+		return this.price;
 	}
 	
 	public String getcatagory()
