@@ -48,35 +48,40 @@
 
 <div class="container">
 
-<div class="navbar navbar-inverse row">
-<div class="col-sm-7">
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <a class="navbar-brand" href="index">MusicHub</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+     <ul class="nav navbar-nav">
 
-</div>
-<div class="col-sm-5">
- <ul class="nav navbar-nav">
+					<li><a href="index">Home</a></li>
+					<li><a href="Aboutus">About US</a></li>
+					<li class="dropdown"><a data-toggle="dropdown" href="Product">Product
+							<span class="caret"></span>
+					</a>
+						<ul class="pmenu dropdown-menu">
+							<li><a href="Product">Guitar</a></li>
+							<li><a href="Product">Piano</a></li>
+							<li><a href="Product">Flute</a></li>
 
-<li><a href="">Home</a></li>
-<li><a href="#">About US</a></li>
-<li class="dropdown"><a data-toggle="dropdown" href="Product">Product <span class="caret"></span></a>
-<ul class="pmenu dropdown-menu">
-<li><a href="Product">Guitar</a></li>
-<li><a href="Product">Piano</a></li>
-<li><a href="Product">Flute</a></li>
+						</ul></li>
+				</ul>
 
-</ul>
-</li>
-<li><a href="Register">Register</a></li>
-<li><a href="Login">Login</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="Register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="Login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-</ul></div>
-
-<!-- <div class ="col-sm-8"></div>
-<div class ="col-sm-2"><li><a href="#">Register</a></li></div>
-<div  class ="col-sm-2"><li><a href="#">Login</a></li></div>
-</div>
- -->
-
-</div>
 
 
 </div>

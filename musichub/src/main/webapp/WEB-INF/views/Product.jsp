@@ -1,17 +1,19 @@
-	<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <html lang="en">
 <head>
-<c:set var="img" value="/resources/images"/>
-<c:set var="btcss" value="/resources/bootstrap/css"/>
-<c:set var="btjs" value="/resources/bootstrap/js"/>
+<c:set var="img" value="/resources/images" />
+<c:set var="btcss" value="/resources/bootstrap/css" />
+<c:set var="btjs" value="/resources/bootstrap/js" />
 
 <meta charset="UTF-8">
 <title>Document</title>
-<link rel="stylesheet" href="<c:url value="${btcss }/bootstrap.min.css"/>">
+<link rel="stylesheet"
+	href="<c:url value="${btcss }/bootstrap.min.css"/>">
 
 <script src="<c:url value="${btjs }/angular.min.js"/>"></script>
 
@@ -19,47 +21,9 @@
 	var app = angular.module("searchApp", []).controller("TableCtrl",
 			function($scope) {
 
-				var products = [ {
-					id : "1",
-					name : "Guitar",
-					brand : "Gibson",
-					description : "Gibson Guitar",
-					price : "50000",
-					catagory : "Guitar"
-				}, {
-					id : "2",
-					name : "Piano",
-					brand : "Knight",
-					description : "Knight Piano",
-					price : "75000",
-					catagory : "Piano"
-				}, {
-					id : "3",
-					name : "Electric Guitar",
-					brand : "Gibson",
-					description : "Gibson",
-					price : "55000",
-					catagory : "Guitar"
-				}, {
-					id : "4",
-					name : "Flute",
-					brand : "Tim",
-					description : "Tim Flute",
-					price : "2000",
-					catagory : "Flute"
-				} ];
-				$scope.prod = products;
-				//$scope.searchText="Guitar";
-			
-				/* $http.get('data1').success(function(data) {
-					2
-					    $scope.products = data;
-					3
-					}); */
-					//$scope.searchText=${Productdata};
-					$scope.products=${data1};
-					
+				$scope.products=${data1};
 				
+
 			});
 </script>
 
@@ -154,85 +118,64 @@
 				<div class="col-md-2"></div>
 
 				<div class="col-md-8">
+					
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th>ID</th>
+									<th>Name</th>
+									<th>Brand</th>
+									<th>Description</th>
+									<th>Price</th>
+									<th>Catagory</th>
+									<th>More</th>
+								</tr>
+							</thead>
 
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>ID</th>
-								<th>Name</th>
-								<th>Brand</th>
-								<th>Description</th>
-								<th>Price</th>
-								<th>Catagory</th>
-								<th>More</th>
-							</tr>
-						</thead>
+							<tbody>
 
-						<tbody>
+								<tr ng-repeat="p in products | filter:searchText">
 
-							<tr ng-repeat="p in products | filter:searchText">
-								<a href="ProductDetails">
 									<td>{{p.id}}</td>
-								<td>{{p.name}}</td>
-								<td>{{p.brand}}</td>
-								<td>{{p.description}}</td>
-								<td>{{p.price}}</td>
-								<td>{{p.catagory}}</td>
-								<td><a href="ProductDetails"><img
-										style="width: 30; height: 30px;"
-										src="<c:url value="${img}/infoicon.jpg"/>"></a></td>
-								</a>
-								
-							
-							</tr>
-							<!--  <tr>
-    <td>1</td>
-    <td>Guitar</td>
-    <td>Gibson</td>
-    <td>Gibson Guitar</td>
-    <td>25000</td>
-    <td>Guitar</td>
-    </tr>
-     <tr>
-    <td>2</td>
-    <td>Piano</td>
-    <td>Nike</td>
-    <td>Nike Piano</td>
-    <td>50000</td>
-    <td>Piano</td>
-    </tr>
-     <tr>
-    <td>3</td>
-    <td>Flute</td>
-    <td>Gibson</td>
-    <td>Gibson Flute</td>
-    <td>2000</td>
-    <td>Flute</td>
-    </tr>
-     <tr>
-    <td>4</td>
-    <td>Electric Guitar</td>
-    <td>Gibson</td>
-    <td>Electric Gibson Guitar</td>
-    <td>35000</td>
-    <td>Guitar</td>
-    </tr>  -->
-						</tbody>
+									<td>{{p.name}}</td>
+									<td>{{p.brand}}</td>
+									<td>{{p.description}}</td>
+									<td>{{p.price}}</td>
+									<td>{{p.catagory}}</td>
+									<td>
+									<form action="ProductDetails" method="get">
+									<input type="hidden" value="{{p.id}}"
+										name="id"></input>
+										<input type="hidden" value="{{p.name}}"
+										name="name"></input>
+										<input type="hidden" value="{{p.brand}}"
+										name="brand"></input>
+										<input type="hidden" value="{{p.description}}"
+										name="description"></input>
+										<input type="hidden" value="{{p.price}}"
+										name="price"></input>
+										<button type="submit">
+											<span class="glyphicon glyphicon-plus-sign"></span>
+										</button> 
+										</form>
+									</td>
 
-					</table>
 
+								</tr>
+
+							</tbody>
+
+						</table>
+					
 				</div>
 
 				<div class="col-md-2"></div>
 
 			</div>
 
-<div class="row">
-<div class="col-md-2">
-
-
-</div>
-</div>
+			<div class="row">
+				<div class="col-md-2"></div>
+			</div>
 
 
 			<div class="row">
@@ -251,7 +194,7 @@
 
 			</div>
 
-		
+
 		</div>
 
 		<script

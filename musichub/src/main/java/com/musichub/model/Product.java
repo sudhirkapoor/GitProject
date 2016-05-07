@@ -1,8 +1,34 @@
 package com.musichub.model;
+import java.io.Serializable;
 
-public class Product {
-	int id,price;
-	String name,brand,description,catagory;
+import javax.persistence.*;
+
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Transactional;
+@Entity
+@Table(name = "Product")
+//@Transactional(isolation=Isolation.SERIALIZABLE)
+public class Product implements Serializable {
+	 @Id @GeneratedValue(strategy= GenerationType.AUTO)
+	   @Column(name = "id")
+	int id;
+	 
+	 @Column(name = "name")
+	String name;
+	 @Column(name = "brand")
+	String brand;
+	 @Column(name = "description")
+	String description;
+	 @Column(name = "price")
+		int price;
+	 @Column(name = "catagory")
+	String catagory;
+	 
+	 public Product()
+	 {
+		 
+	 }
+	 
 	public int getid()
 	{
 		return id;

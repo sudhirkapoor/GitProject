@@ -1,149 +1,149 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" isELIgnored="false"%>
+	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <html lang="en">
 <head>
-<c:set var="img" value="/resources/images"/>
-<c:set var="btcss" value="/resources/bootstrap/css"/>
-<c:set var="btjs" value="/resources/bootstrap/js"/>
-	<meta charset="UTF-8">
-	<title>Document</title>
-		
-	<link rel="stylesheet" href="<c:url value="${btcss }/bootstrap.min.css"/>">
-	</head>
-		<style>
-	.navbar,.pmenu
-	{
-	background:black;
-	}
-	
-	.navbar li a,.pmenu
-	{
-	color:white !important;
-	}
-	
-	.pmenu a:hover{
-	background:black;
+<c:set var="img" value="/resources/images" />
+<c:set var="btcss" value="/resources/bootstrap/css" />
+<c:set var="btjs" value="/resources/bootstrap/js" />
+<meta charset="UTF-8">
+<title>Document</title>
+
+<link rel="stylesheet"
+	href="<c:url value="${btcss }/bootstrap.min.css"/>">
+</head>
+<style>
+.navbar, .pmenu {
+	background: black;
+}
+
+.navbar li a, .pmenu {
+	color: white !important;
+}
+
+.pmenu a:hover {
+	background: black;
 	font-weight: bold;
-	
-	}
-	.navbar li a:hover{
+}
+
+.navbar li a:hover {
 	font-weight: bold;
-	}
-	.item{
-	max-width:100%; 
-  max-height:100%;
-	
-	}
-	.item img{
-	max-width:100%; 
-  max-height:100%;
-  margin:auto;
-  
-	
-	}
-	.form-control
-	{
-	width:380px;
-	}
-	</style>
-	<body>
+}
 
-<p>&nbsp;</p>
+.item {
+	max-width: 100%;
+	max-height: 100%;
+}
 
-<div class="container">
+.item img {
+	max-width: 100%;
+	max-height: 100%;
+	margin: auto;
+}
 
-<div class="navbar navbar-inverse row">
-<div class="col-sm-7">
+.form-control {
+	width: 380px;
+}
+</style>
+<body>
 
-</div>
-<div class="col-sm-5">
- <ul class="nav navbar-nav">
+	<p>&nbsp;</p>
 
-<li><a href="">Home</a></li>
-<li><a href="Aboutus">About US</a></li>
-<li class="dropdown"><a data-toggle="dropdown" href="Product">Product <span class="caret"></span></a>
-<ul class="pmenu dropdown-menu">
-<li><a href="Product">Guitar</a></li>
-<li><a href="Product">Piano</a></li>
-<li><a href="Product">Flute</a></li>
+	<div class="container">
 
-</ul>
-</li>
-<li><a href="Register">Register</a></li>
-<li><a href="Login">Login</a></li>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#myNavbar">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index">MusicHub</a>
+				</div>
+				<div class="collapse navbar-collapse" id="myNavbar">
+					<ul class="nav navbar-nav">
 
-</ul></div>
+						<li><a href="index">Home</a></li>
+						<li><a href="Aboutus">About US</a></li>
+						<li class="dropdown"><a data-toggle="dropdown" href="Product">Product
+								<span class="caret"></span>
+						</a>
+							<ul class="pmenu dropdown-menu">
+								<li><a href="Product">Guitar</a></li>
+								<li><a href="Product">Piano</a></li>
+								<li><a href="Product">Flute</a></li>
 
-<!-- <div class ="col-sm-8"></div>
-<div class ="col-sm-2"><li><a href="#">Register</a></li></div>
-<div  class ="col-sm-2"><li><a href="#">Login</a></li></div>
-</div>
- -->
+							</ul></li>
+					</ul>
 
-</div>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="Register"><span
+								class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="Login"><span
+								class="glyphicon glyphicon-log-in"></span> Login</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
 
-</div>
-<div class="row">
-<div class="col-md-5">
-</div>
-<div class="col-md-3">
-<form>
-<label style="font-size:20px">Sign UP</label>
-    <div class="form-group">
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-3">
+				<form>
+					<label style="font-size: 20px">Sign UP</label>
+					<div class="form-group">
 
-        <label>Email</label>
+						<label>Email</label> <input type="email" class="form-control"
+							id="inputEmail" placeholder="Email">
 
-        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+					</div>
 
-    </div>
+					<div class="form-group">
+						<label> Password</label> <input type="password"
+							class="form-control" id="inputPassword" placeholder="Password">
 
-    <div class="form-group">
-        <label> Password</label>
+					</div>
 
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+					<div class="checkbox">
 
-    </div>
+						<label><input type="checkbox"> Remember me</label>
 
-    <div class="checkbox">
+					</div>
 
-        <label><input type="checkbox"> Remember me</label>
+					<button type="submit" class="btn btn-primary">Login</button>
 
-    </div>
+				</form>
 
-    <button type="submit" class="btn btn-primary">Login</button>
+			</div>
+			<div class="col-md-4"></div>
 
-</form>
+		</div>
 
-</div>
-<div class="col-md-4">
-</div>
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-3">
+				<P>&nbsp;</P>
+				<P>&nbsp;</P>
+				<footer>
+					<div class="container">
+						<p class="text-muted">All products are for Display only not
+							for Sale</p>
+					</div>
+				</footer>
+			</div>
+			<div class="col-md-4"></div>
 
-</div>
+		</div>
 
-	<div class="row">
-	<div class="col-md-5">
-</div>
-<div class="col-md-3">
-<P>&nbsp;</P>
-	<P>&nbsp;</P>
-	<footer> 
-       <div class="container"> 
-         <p class="text-muted"> All products are for Display only not for Sale </p> 
-       </div> 
-     </footer> 
-</div>
-<div class="col-md-4">
-</div>
-	
+
 	</div>
-	
-	
-</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

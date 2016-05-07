@@ -5,6 +5,7 @@ import javax.servlet.http.*;
 import org.springframework.web.method.support.ModelAndViewContainer;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,8 +18,17 @@ import com.musichub.service.*;
 @Controller
 public class MainController {
 	
-@RequestMapping("/")
-public ModelAndView Index()
+	@RequestMapping("/")
+	public ModelAndView Index()
+	{
+		System.out.println("In Controller");
+		ModelAndView mv=new ModelAndView("index");
+		mv.addObject("msg","Welcome");
+		return mv;	
+	}
+
+@RequestMapping("/index")
+public ModelAndView Index1()
 {
 	//System.out.println("In Controller");
 	ModelAndView mv=new ModelAndView("index");
@@ -48,7 +58,7 @@ public ModelAndView Product_Method2(@PathVariable("pname") String Prodname)
 {
 	
 	List<Product> filteredlist=new ArrayList<Product>();
-	ProductService service=new ProductService();
+	//ProductService service=new ProductService();
 	List<Product> list=service.getProducts();
 	
 	Iterator<Product> i=list.iterator();
@@ -71,20 +81,36 @@ public ModelAndView Product_Method2(@PathVariable("pname") String Prodname)
 	
 	return mv;
 }
-@Autowired
+@Autowired(required=true)
+@Qualifier(value="service")
 ProductService service;
+
+public void setService(ProductService service) {
+	this.service = service;
+}
+/*
+@Autowired
+	public MainController(ProductService service) {
+		this.service = service;
+	}*/
 
 @RequestMapping("/Product")
 public ModelAndView Product_Method()
 {
-	 service=new ProductService();
+	 //service=new ProductService();
+	System.out.println("service call start in front controller");
 	List<Product> list=service.getProducts();
-	String json = new Gson().toJson(list );
-	 
+	System.out.println("service call end in front controller");
+String json = new Gson().toJson(list );
+System.out.print("Data from controller");
+System.out.println(json);
 	ModelAndView mv=new ModelAndView("Product");
 	mv.addObject("data1",json);
+	
 	return mv;
 }
+
+
 
 @RequestMapping("/Aboutus")
 public ModelAndView About_Method()
@@ -94,12 +120,12 @@ public ModelAndView About_Method()
 	return mv;
 }
 
-@RequestMapping("/ProductDetails")
-public ModelAndView ProductDetails_Method()
+@RequestMapping(value="/ProductDetails")
+public ModelAndView ProductDetails_Method(@ModelAttribute ("product") Product product)
 {
-	ModelAndView mv=new ModelAndView("ProductDetails");
-	mv.addObject("msg","Register");
-	return mv;
+	ModelAndView mvc=new ModelAndView("ProductDetails");
+	
+	return mvc;
 }
 
 }
