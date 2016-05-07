@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Table(name = "Product")
 //@Transactional(isolation=Isolation.SERIALIZABLE)
 public class Product implements Serializable {
-	 @Id @GeneratedValue(strategy= GenerationType.AUTO)
+	 @Id @GeneratedValue(strategy= GenerationType.IDENTITY)
 	   @Column(name = "id")
 private	int id;
 	 
@@ -31,7 +31,8 @@ private	int id;
 	 
 	public int getid()
 	{
-		return this.id;
+		System.out.println("inside getid() method");
+		return id;
 	}
 	public void setid(int id)
 	{

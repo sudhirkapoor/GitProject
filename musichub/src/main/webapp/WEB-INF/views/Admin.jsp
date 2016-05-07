@@ -3,8 +3,8 @@
 	pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <!DOCTYPE html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <html lang="en">
 <head>
 <c:set var="img" value="/resources/images" />
@@ -19,13 +19,13 @@
 <script src="<c:url value="${btjs }/angular.min.js"/>"></script>
 
 <script>
-/* 	var app = angular.module("searchApp", []).controller("TableCtrl",
-			function($scope) {
+	/* 	var app = angular.module("searchApp", []).controller("TableCtrl",
+	 function($scope) {
 
-				$scope.products=${data1};
-				
+	 $scope.products=${data1};
+	
 
-			}); */
+	 }); */
 </script>
 
 </head>
@@ -64,15 +64,13 @@
 </style>
 
 
-<body >
+<body>
 
 	<p>&nbsp;</p>
 
-<div>
-
-</div>
+	<div></div>
 	<div class="container">
-<nav class="navbar navbar-inverse">
+		<nav class="navbar navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
 					<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -110,78 +108,212 @@
 
 
 	</div>
-	<div ng-app="searchApp">
-	
-	<div class="container central">
-				<h2 class="add-product-heading">Product Details</h2>
-				<c:url var="addAction" value="/Admin/addProduct"/>
-				<form:form action="${addAction}" commandName="product">
-				
-		<div class="row">
-			<div class=col-xs-6><form:label path="id"><spring:message text="ID"/></form:label></div>
-			<div class=col-xs-6> <form:input path="id"  /><form:hidden path="id"/></div>
-		</div>
-		<div class="row">
-			<div class=col-xs-6><form:label path="name"><spring:message text="NAME"/></form:label></div>
-						<div class=col-xs-6><form:input path="name"/></div>
-		</div>
-			<div class="row">
-			<div class=col-xs-6><form:label path="brand"><spring:message text="BRAND"/></form:label></div>
-			<div class=col-xs-6><form:input path="brand"/></div>
-		</div>
-			<div class="row">
-			<div class=col-xs-6><form:label path="catagory"><spring:message text="CATEGORY"/></form:label></div>
-			<div class=col-xs-6><form:input path="catagory"/></div>
-		</div>
-			<div class="row">
-			<div class=col-xs-6><form:label path="price"><spring:message text="PRICE"/></form:label></div>
-			<div class=col-xs-6><form:input path="price"/></div>
-		</div>
-		<div class="row">
-			<div class=col-xs-6><form:label path="description"><spring:message text="DESCRIPTION"/></form:label></div>
-			<div class=col-xs-6><form:input path="description"/></div>
-		</div>
-		<div class="row">
-			<div class=col-xs-6><c:if test="${!empty product.name}"><input type="submit" value="<spring:message text="Update Product"/>"></c:if></div>
-			<div class=col-xs-6><c:if test="${empty product.name}"><input type="submit" value="<spring:message text="Add Product"/>"></c:if></div>
-			
-		</div>
-		
-</form:form>
-</div>
-<div>
-<h3>Persons List</h3>
-<c:if test="${!empty listProduct}">
-    <table class="tg">
-    <tr>
-        <th width="80">Product ID</th>
-        <th width="120">Product Name</th>
-        <th width="120">Brand</th>
-        <th width="120">Description</th>
-        <th width="120">Price</th>
-        <th width="120">Category</th>
-        <th width="60">Edit</th>
-        <th width="60">Delete</th>
-    </tr>
-    <c:forEach items="${listProduct}" var="product">
-        <tr>
-            <td>${product.id}</td>
-            <td>${product.name}</td>
-            <td>${product.brand}</td>
-            <td>${product.description}</td>
-            <td>${person.price}</td>
-            <td>${person.catagory}</td>
-            <td><a href="<c:url value='/Admin/editProduct/${product.id}' />" >Edit</a></td>
-            <td><a href="<c:url value='/Admin/deleteProduct/${product.id}' />" >Delete</a></td>
-        </tr>
-    </c:forEach>
-    </table>
-</c:if>
-</div>
+	<!-- <div ng-app="searchApp"> -->
+	<div>
 
-	
-	
-<%-- 	<div class="container" ng-controller="TableCtrl">
+		<div class="container central">
+			<h2 class="add-product-heading">Product Details</h2>
+			<c:url var="addAction" value="/Admin/addProduct" />
+
+
+
+			<form:form action="${addAction}" commandName="product">
+				<table>
+					<c:if test="${!empty product.name}">
+						<tr>
+							<td><form:label path="id">
+									<spring:message text="ID" />
+								</form:label></td>
+							<td><form:input path="id" readonly="true" size="8"
+									disabled="true" /> <form:hidden path="id" /></td>
+						</tr>
+					</c:if>
+				<%-- 	<tr>
+						<td><form:label path="id">
+								<spring:message text="id" />
+							</form:label></td>
+						<td><form:input path="id" /></td>
+					</tr> --%>
+					<tr>
+						<td><form:label path="name">
+								<spring:message text="Name" />
+							</form:label></td>
+						<td><form:input path="name" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="brand">
+								<spring:message text="brand" />
+							</form:label></td>
+						<td><form:input path="brand" /></td>
+					</tr>
+					<tr>
+						<td><form:label path="description">
+								<spring:message text="description" />
+							</form:label></td>
+						<td><form:input path="description" /></td>
+					</tr>
+
+					<tr>
+						<td><form:label path="price">
+								<spring:message text="price" />
+							</form:label></td>
+						<td><form:input path="price" /></td>
+					</tr>
+
+					<tr>
+						<td><form:label path="catagory">
+								<spring:message text="catagory" />
+							</form:label></td>
+						<td><form:input path="catagory" /></td>
+					</tr>
+
+					<tr>
+						<td colspan="2"><c:if test="${!empty product.name}">
+								<input type="submit"
+									value="<spring:message text="Edit"/>" />
+							</c:if> <c:if test="${empty product.name}">
+								<input type="submit" value="<spring:message text="Add"/>" />
+							</c:if></td>
+					</tr>
+				</table>
+			</form:form>
+
+			<%-- 			<form:form action="${addAction}" commandName="product">
+
+				<c:if test="${!empty product.name}">
+					<tr>
+						<td><form:label path="id">
+								<spring:message text="ID" />
+							</form:label></td>
+						<td><form:input path="id" readonly="true" size="8"
+								disabled="true" /> <form:hidden path="id" /></td>
+					</tr>
+					<div class="row">
+					<div class=col-xs-6>
+						<form:label path="id">
+							<spring:message text="ID" />
+						</form:label>
+					</div>
+					<div class=col-xs-6>
+						<form:input path="id" readonly="true" size="8"
+								disabled="true" /> <form:hidden path="id" />
+					</div>
+				</div>
+				</c:if>
+
+				<div class="row">
+					<div class=col-xs-6>
+						<form:label path="id">
+							<spring:message text="ID" />
+						</form:label>
+					</div>
+					<div class=col-xs-6>
+						<form:input path="id" />
+						<form:hidden path="id" />
+					</div>
+				</div>
+				<div class="row">
+					<div class=col-xs-6>
+						<form:label path="name">
+							<spring:message text="NAME" />
+						</form:label>
+					</div>
+					<div class=col-xs-6>
+						<form:input path="name" />
+					</div>
+				</div>
+				<div class="row">
+					<div class=col-xs-6>
+						<form:label path="brand">
+							<spring:message text="BRAND" />
+						</form:label>
+					</div>
+					<div class=col-xs-6>
+						<form:input path="brand" />
+					</div>
+				</div>
+				<div class="row">
+					<div class=col-xs-6>
+						<form:label path="catagory">
+							<spring:message text="CATEGORY" />
+						</form:label>
+					</div>
+					<div class=col-xs-6>
+						<form:input path="catagory" />
+					</div>
+				</div>
+				<div class="row">
+					<div class=col-xs-6>
+						<form:label path="price">
+							<spring:message text="PRICE" />
+						</form:label>
+					</div>
+					<div class=col-xs-6>
+						<form:input path="price" />
+					</div>
+				</div>
+				<div class="row">
+					<div class=col-xs-6>
+						<form:label path="description">
+							<spring:message text="DESCRIPTION" />
+						</form:label>
+					</div>
+					<div class=col-xs-6>
+						<form:input path="description" />
+					</div>
+				</div>
+				<div class="row">
+					<div class=col-xs-6>
+						<c:if test="${!empty product.name}">
+							<input type="submit"
+								value="<spring:message text="Update Product"/>">
+						</c:if>
+					</div>
+					<div class=col-xs-6>
+						<c:if test="${empty product.name}">
+							<input type="submit" value="<spring:message text="Add Product"/>">
+						</c:if>
+					</div>
+
+				</div>
+
+			</form:form> --%>
+		</div>
+		<div>
+			<h3>Persons List</h3>
+			<c:if test="${!empty listProduct}">
+				<table class="tg">
+					<tr>
+						<th width="80">Product ID</th>
+						<th width="120">Product Name</th>
+						<th width="120">Brand</th>
+						<th width="120">Description</th>
+						<th width="120">Price</th>
+						<th width="120">Category</th>
+						<th width="60">Edit</th>
+						<th width="60">Delete</th>
+					</tr>
+					<c:forEach items="${listProduct}" var="product">
+						<tr>
+							<td>${product.id}</td>
+							<td>${product.name}</td>
+							<td>${product.brand}</td>
+							<td>${product.description}</td>
+							<td>${person.price}</td>
+							<td>${person.catagory}</td>
+							<td><a
+								href="<c:url value='/Admin/editProduct/${product.id}' />">Edit</a></td>
+							<td><a
+								href="<c:url value='/Admin/deleteProduct/${product.id}' />">Delete</a></td>
+						</tr>
+					</c:forEach>
+				</table>
+			</c:if>
+		</div>
+
+
+
+		<%-- 	<div class="container" ng-controller="TableCtrl">
 
 		<div class="row">
 			<div class="col-md-8"></div>
@@ -260,28 +392,28 @@
 			</div>
 
  --%>
-			<div class="row">
-				<div class="col-md-5"></div>
-				<div class="col-md-3">
-					<P>&nbsp;</P>
-					<P>&nbsp;</P>
-					<footer>
-						<div class="container">
-							<p class="text-muted">All products are for Display only not
-								for Sale</p>
-						</div>
-					</footer>
-				</div>
-				<div class="col-md-4"></div>
-
+		<div class="row">
+			<div class="col-md-5"></div>
+			<div class="col-md-3">
+				<P>&nbsp;</P>
+				<P>&nbsp;</P>
+				<footer>
+					<div class="container">
+						<p class="text-muted">All products are for Display only not
+							for Sale</p>
+					</div>
+				</footer>
 			</div>
-
+			<div class="col-md-4"></div>
 
 		</div>
 
-		<script
-			src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-		<script
-			src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script
+		src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </body>
 </html>

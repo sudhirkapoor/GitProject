@@ -42,7 +42,7 @@ public class AdminController {
 	}*/
 	
 	
-	 @RequestMapping(value = "/Admin")
+	 @RequestMapping(value = "/AdminPage")
 	    public String listProduct(Model model) {
 	        model.addAttribute("product", new Product());
 	        System.out.print("hi");
@@ -60,22 +60,23 @@ public class AdminController {
 	            //existing person, call update
 	            this.service.updateProduct(product);
 	        }
-	         
-	        return "redirect:/Admin";
+	        return "redirect:/AdminPage";
 	         
 	    }
 	 @RequestMapping("/Admin/deleteProduct/{id}")
 	    public String removeProduct(@PathVariable("id") int id){
 	         
 	        this.service.removeProduct(id);
-	        return "redirect:/Admin";
+	        return "redirect:/AdminPage";
 	    }
 	 
 	 @RequestMapping("/Admin/editProduct/{id}")
 	    public String editProduct(@PathVariable("id") int id, Model model){
 		 System.out.println("in controller edit"+id);
 	        model.addAttribute("product",service.getProductByID(id));
+	        Product p=service.getProductByID(id);
 	        model.addAttribute("listProduct", service.getProducts());
+	        System.out.println(p.getname());
 	        return "Admin";
 	    }
 

@@ -79,6 +79,7 @@ public class ProductDAO implements ProductDAOImplement {
 		System.out.println("in get id "+id);
 		Session session = sessionFactory.getCurrentSession();
 		Product p = (Product) session.load(Product.class, new Integer(id));
+	System.out.println("DAO"+p.getname());
 		return p;
 		
 	}
